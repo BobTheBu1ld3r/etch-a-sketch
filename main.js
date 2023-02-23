@@ -13,6 +13,8 @@ function createBoxes (nRowsColumns) {
             const newBox = document.createElement("div");
             newBox.classList.add("box");
             
+            newBox.addEventListener("mouseover", changeColor);
+
             const computedHeight = computeBoxSide(nRowsColumns);
 
             newBox.style.height = `${computedHeight}px`;
@@ -33,6 +35,10 @@ function computeBoxSide (nRowsColumns) {
     const availableSpace = clientHeight - totalGap - totalPadding;
     const boxSide = availableSpace/nRowsColumns;
     return boxSide;
+}
+
+function changeColor(hoverEvent) {
+    hoverEvent.target.style.backgroundColor = "green";
 }
 
 createBoxes(10)
