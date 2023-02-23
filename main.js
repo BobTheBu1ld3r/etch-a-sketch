@@ -6,21 +6,24 @@ const border = parseFloat(window.getComputedStyle(gridContainer).getPropertyValu
 console.log(border);
 console.log(split);
 
-for (let i = 0; i<5 ; i++) {
-    const newRow = document.createElement("div");
-    newRow.classList.add("row");
-    
-    for (let n = 0; n< 5; n++) {
-        const newBox = document.createElement("div");
-        newBox.classList.add("box");
+function createBoxes (nRowsColumns) {
+    for (let i = 0; i<nRowsColumns ; i++) {
+        const newRow = document.createElement("div");
+        newRow.classList.add("row");
         
-        const computedHeight = (parseFloat(window.getComputedStyle(gridContainer).getPropertyValue("height")) - 4*split -2*border)/5
-        console.log(computedHeight);
-        newBox.style.height = `${computedHeight}px`;
-        newBox.style.width = `${computedHeight}px`
-        newRow.appendChild(newBox);
+        for (let n = 0; n< nRowsColumns; n++) {
+            const newBox = document.createElement("div");
+            newBox.classList.add("box");
+            
+            const computedHeight = (parseFloat(window.getComputedStyle(gridContainer).getPropertyValue("height")) - (nRowsColumns-1)*split -2*border)/nRowsColumns
+            console.log(computedHeight);
+            newBox.style.height = `${computedHeight}px`;
+            newBox.style.width = `${computedHeight}px`
+            newRow.appendChild(newBox);
+        }
+    
+        gridContainer.appendChild(newRow);
     }
-
-    gridContainer.appendChild(newRow);
-
 }
+
+createBoxes(10)
