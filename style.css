@@ -28,8 +28,8 @@ body{
 }
 
 .box {
-    width: 100px;
-    height: 100px;
+    /* width: 100px;
+    height: 100px; */
     background-color: aquamarine;
     border: 2px solid red;
 }
@@ -40,6 +40,8 @@ body{
 }
 
 .grid-container{
+    /* box-sizing: content-box; */
+
     height: 80vh;
     width: 80vh;
 
