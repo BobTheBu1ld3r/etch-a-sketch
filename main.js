@@ -1,10 +1,7 @@
 const gridContainer = document.querySelector(".grid-container");
 const root = document.querySelector(":root");
-console.log(window.getComputedStyle(root).getPropertyValue("--split"))
-const split = parseFloat(window.getComputedStyle(root).getPropertyValue("--split"));
+const gap = parseFloat(window.getComputedStyle(root).getPropertyValue("--gap"));
 const border = parseFloat(window.getComputedStyle(gridContainer).getPropertyValue("border-width"));
-console.log(border);
-console.log(split);
 
 function createBoxes (nRowsColumns) {
     for (let i = 0; i<nRowsColumns ; i++) {
@@ -15,15 +12,25 @@ function createBoxes (nRowsColumns) {
             const newBox = document.createElement("div");
             newBox.classList.add("box");
             
-            const computedHeight = (parseFloat(window.getComputedStyle(gridContainer).getPropertyValue("height")) - (nRowsColumns-1)*split -2*border)/nRowsColumns
-            console.log(computedHeight);
+            const computedHeight = computeBoxSide(nRowsColumns);
+            
             newBox.style.height = `${computedHeight}px`;
-            newBox.style.width = `${computedHeight}px`
+            newBox.style.width = `${computedHeight}px`;
+
             newRow.appendChild(newBox);
         }
     
         gridContainer.appendChild(newRow);
     }
+}
+
+function computeBoxSide (nRowsColumns) {
+    const totalBorderSize = 2*border;
+    const totalGap = (nRowsColumns-1)*gap;
+    const gridContainerSide = parseFloat(window.getComputedStyle(gridContainer).getPropertyValue("height"));
+    const availableSpace = gridContainerSide - totalGap -totalBorderSize;
+    const boxSide = availableSpace/nRowsColumns;
+    return boxSide;
 }
 
 createBoxes(10)
