@@ -27,14 +27,14 @@ body{
     background-color: #eeeeee;
 }
 
-.grid-container > * > * {
+.box {
     width: 100px;
     height: 100px;
     background-color: aquamarine;
     border: 2px solid red;
 }
 
-.grid-container>* {
+.row {
     display: flex;
     gap:var(--split);
 }
