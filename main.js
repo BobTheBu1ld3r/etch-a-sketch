@@ -26,13 +26,11 @@ function createBoxes (nRowsColumns) {
 }
 
 function computeBoxSide (nRowsColumns) {
-    const totalBorder = 2*border;
     const totalPadding = 2*padding;
     const totalGap = (nRowsColumns-1)*gap;
-    const gridContainerSide = parseFloat(window.getComputedStyle(gridContainer).getPropertyValue("height"));
-    const test = gridContainer.clientHeight;
+    const clientHeight = gridContainer.clientHeight;
 
-    const availableSpace = gridContainerSide - totalGap -totalBorder - totalPadding;
+    const availableSpace = clientHeight - totalGap - totalPadding;
     const boxSide = availableSpace/nRowsColumns;
     return boxSide;
 }
