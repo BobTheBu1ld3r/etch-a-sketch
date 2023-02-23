@@ -1,5 +1,5 @@
 :root{
-    --split: 2px;
+    --gap: 2px;
 }
 
 
@@ -36,7 +36,7 @@ body{
 
 .row {
     display: flex;
-    gap:var(--split);
+    gap:var(--gap);
 }
 
 .grid-container{
@@ -49,9 +49,10 @@ body{
     margin-top: 50px;
     margin-left: auto;
     margin-right: auto;
+    padding: var(--gap);
 
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap:var(--split);
+    gap:var(--gap);
 }
