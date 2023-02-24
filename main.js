@@ -4,6 +4,7 @@ const gap = parseFloat(window.getComputedStyle(root).getPropertyValue("--gap"));
 const border = parseFloat(window.getComputedStyle(gridContainer).getPropertyValue("border-width"));
 const padding = parseFloat(window.getComputedStyle(gridContainer).padding);
 
+const nRowsColumns = 5;
 
 function createBoxes (nRowsColumns) {
     for (let i = 0; i<nRowsColumns ; i++) {
@@ -58,7 +59,7 @@ function deleteBoxes () {
 
 function resetBoxes () {
     deleteBoxes();
-    createBoxes(50);
+    createBoxes(nRowsColumns);
 }
 
 let time0 = 0;
@@ -73,7 +74,7 @@ function update (time){
 
 window.requestAnimationFrame(update);
 
-createBoxes(50);
+createBoxes(nRowsColumns);
 
 const reset = document.querySelector("button.reset");
 reset.addEventListener("click", resetBoxes);
