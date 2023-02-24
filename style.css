@@ -1,5 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&display=swap');
+
+
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&display=swap');
+
+
 :root{
     --gap: 2px;
+    --box-color: hsl(299, 0% , 90%);
+    --box-border: hsl(299, 0%, 90%);
+    --hue: 17deg;
+    --saturation: 27%;
+    --lightness: 65%;
+    --main-color: hsl(var(--hue) var(--saturation) var(--lightness));
 }
 
 
@@ -16,22 +28,24 @@ html{
 body{
     margin: 0;
     padding: 0;
+    background-color: var(--main-color);
+    text-align: center;
 }
 
 .header{
-    width: 100vw;
-    height: 7vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #eeeeee;
+    margin-top: 40px;
+
+    font-size: 64px;
+    color: rgb(226, 226, 226);
+    font-family:"Caveat";
+
 }
 
 .box {
     /* width: 100px;
     height: 100px; */
-    background-color: aquamarine;
-    border: 2px solid red;
+    background-color: var(--box-color);
+    border: 0px solid var(--box-border);
 }
 
 .row {
@@ -45,8 +59,10 @@ body{
     height: 80vh;
     width: 80vh;
 
-    border: 3px solid blue;
-    margin-top: 50px;
+    background-color: white;
+    border: 20px solid hsl(0deg 59% 58%);
+    border-radius: 10px;
+    margin-top: 30px;
     margin-left: auto;
     margin-right: auto;
     padding: var(--gap);
@@ -55,4 +71,8 @@ body{
     flex-direction: column;
     align-items: center;
     gap:var(--gap);
+}
+
+.color{
+    background-color: var(--main-color);
 }
