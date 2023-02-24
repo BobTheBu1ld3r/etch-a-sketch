@@ -14,7 +14,7 @@ function createBoxes (nRowsColumns) {
             const newBox = document.createElement("div");
             newBox.classList.add("box");
             
-            newBox.addEventListener("mouseover", changeColor);
+            newBox.addEventListener("mouseover", addColor);
 
             const computedHeight = computeBoxSide(nRowsColumns);
 
@@ -38,7 +38,7 @@ function computeBoxSide (nRowsColumns) {
     return boxSide;
 }
 
-function changeColor(hoverEvent) {
+function addColor(hoverEvent) {
     hoverEvent.target.classList.add("color");
 }
 
@@ -55,4 +55,4 @@ function update (time){
 
 window.requestAnimationFrame(update);
 
-createBoxes(50)
+createBoxes(100)
