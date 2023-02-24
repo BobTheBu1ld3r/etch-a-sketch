@@ -48,6 +48,17 @@ function cycleColor(timeInterval) {
     root.style.setProperty("--hue", `${hue}deg`);
 }
 
+
+function deleteBoxes () {
+    const children = Array.from(gridContainer.childNodes);
+    console.log(children);
+    children.forEach(e=>{
+        console.log(e);
+        gridContainer.removeChild(e);
+    });
+    console.log(gridContainer.childNodes);
+}
+
 let time0 = 0;
 
 function update (time){
