@@ -4,6 +4,7 @@ const gap = parseFloat(window.getComputedStyle(root).getPropertyValue("--gap"));
 const border = parseFloat(window.getComputedStyle(gridContainer).getPropertyValue("border-width"));
 const padding = parseFloat(window.getComputedStyle(gridContainer).padding);
 
+
 function createBoxes (nRowsColumns) {
     for (let i = 0; i<nRowsColumns ; i++) {
         const newRow = document.createElement("div");
@@ -38,7 +39,20 @@ function computeBoxSide (nRowsColumns) {
 }
 
 function changeColor(hoverEvent) {
-    hoverEvent.target.style.backgroundColor = "green";
+    hoverEvent.target.classList.add("color");
 }
 
-createBoxes(10)
+let time1 = 0;
+
+function update (time){
+    let hue = parseFloat(window.getComputedStyle(root).getPropertyValue("--hue"));
+    hue+= 0.8;
+    root.style.setProperty("--hue", `${hue}deg`);
+    time1 = time;
+    window.requestAnimationFrame(update);
+
+}
+
+window.requestAnimationFrame(update);
+
+createBoxes(50)
