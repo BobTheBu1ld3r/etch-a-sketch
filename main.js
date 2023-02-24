@@ -3,6 +3,8 @@ const root = document.querySelector(":root");
 const gap = parseFloat(window.getComputedStyle(root).getPropertyValue("--gap"));
 const border = parseFloat(window.getComputedStyle(gridContainer).getPropertyValue("border-width"));
 const padding = parseFloat(window.getComputedStyle(gridContainer).padding);
+const reset = document.querySelector("button.reset");
+reset.addEventListener("click", resetBoxes);
 
 function getGridSize() {
     const userInput = parseInt(prompt("Hello mate, what grid size would you like? Please input an integer between 1 and 75"));
@@ -66,6 +68,14 @@ function resetBoxes () {
     createBoxes(nRowsColumns);
 }
 
+
+window.requestAnimationFrame(update);
+
+const nRowsColumns = getGridSize();
+
+createBoxes(nRowsColumns);
+
+
 let time0 = 0;
 
 function update (time){
@@ -75,14 +85,3 @@ function update (time){
     window.requestAnimationFrame(update);
 
 }
-
-window.requestAnimationFrame(update);
-
-const nRowsColumns = getGridSize();
-
-createBoxes(nRowsColumns);
-
-
-
-const reset = document.querySelector("button.reset");
-reset.addEventListener("click", resetBoxes);
