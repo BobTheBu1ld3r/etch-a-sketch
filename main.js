@@ -42,17 +42,22 @@ function addColor(hoverEvent) {
     hoverEvent.target.classList.add("color");
 }
 
-let time1 = 0;
+function cycleColor(timeInterval) {
+    let hue = parseFloat(window.getComputedStyle(root).getPropertyValue("--hue"));
+    hue+= 0.05*timeInterval;
+    root.style.setProperty("--hue", `${hue}deg`);
+}
+
+let time0 = 0;
 
 function update (time){
-    let hue = parseFloat(window.getComputedStyle(root).getPropertyValue("--hue"));
-    hue+= 0.8;
-    root.style.setProperty("--hue", `${hue}deg`);
-    time1 = time;
+    const timeInterval = time - time0;
+    cycleColor(timeInterval);
+    time0 = time;
     window.requestAnimationFrame(update);
 
 }
 
 window.requestAnimationFrame(update);
 
-createBoxes(100)
+createBoxes(50)
