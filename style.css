@@ -12,6 +12,7 @@
     --saturation: 27%;
     --lightness: 65%;
     --main-color: hsl(var(--hue) var(--saturation) var(--lightness));
+    --button-color:hsl(var(--hue) var(--saturation) 50%)
 }
 
 
@@ -56,8 +57,8 @@ body{
 .grid-container{
     /* box-sizing: content-box; */
 
-    height: 80vh;
-    width: 80vh;
+    height: 70vh;
+    width: 70vh;
 
     background-color: white;
     border: 20px solid hsl(0deg 59% 58%);
@@ -75,4 +76,22 @@ body{
 
 .color{
     background-color: var(--main-color);
+}
+
+button.reset{
+    font-family:sans-serif;
+    font-size: 24px;
+    margin-top: 24px;
+    padding: 20px;
+    border: none;
+    background-color: var(--button-color);
+    opacity: 1;
+    color: white;
+    border-radius: 5px;
+    border:3px solid hsl(0deg 59% 58%);
+    transition: transform .2s;
+}
+
+button.reset:hover{
+    transform:scale(1.1);
 }
