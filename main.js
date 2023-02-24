@@ -51,12 +51,14 @@ function cycleColor(timeInterval) {
 
 function deleteBoxes () {
     const children = Array.from(gridContainer.childNodes);
-    console.log(children);
     children.forEach(e=>{
-        console.log(e);
         gridContainer.removeChild(e);
     });
-    console.log(gridContainer.childNodes);
+}
+
+function resetBoxes () {
+    deleteBoxes();
+    createBoxes(50);
 }
 
 let time0 = 0;
@@ -71,4 +73,7 @@ function update (time){
 
 window.requestAnimationFrame(update);
 
-createBoxes(50)
+createBoxes(50);
+
+const reset = document.querySelector("button.reset");
+reset.addEventListener("click", resetBoxes);
